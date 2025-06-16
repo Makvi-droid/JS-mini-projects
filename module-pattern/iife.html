@@ -7,15 +7,36 @@
 </head>
 <body>
     <script>
-       //      ↓ Function expression
-(function greet() {
-  document.writeln("I'm IIFE! with a greet function <br>");
-})();
+       
+        //normal IIFE function
+        (function (){
+            document.writeln('im a normal IIFE<br>')
+        })();
 
-(function (){
-    document.writeln('im a normal IIFE')
-})()
-//         ↑ Immediately invoked
+        //IIFE function with a greet function inside
+        (function (){
+            function greet(){
+                document.writeln('im an IIFE with a function called greet <br>');
+            }
+            greet();
+        })();
+
+        //IIFE arrow function
+        (() => {
+            document.writeln('Im an IIFE with an arrow function<br>')
+        })();
+
+        //IIFE arrow function with an inner function called say
+        (() => {
+            say = () => {
+                document.writeln('Im an IIFE with an arrow function called say<br>')
+            }
+            say()
+        })();
+
+        
+        
+
 
     </script>
 </body>
