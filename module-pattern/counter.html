@@ -3,9 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Counter</title>
+    <title>Counter Program</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      const counter = (() => {
+        let count = 0;
+
+        function increment() {
+          count++;
+          return count;
+        }
+
+        function decrement() {
+          count--;
+          return count;
+        }
+
+        function getCurrentCount() {
+          return count;
+        }
+
+        return {
+          increment,
+          decrement,
+          getCurrentCount,
+        };
+      })();
+
+      console.log(`current count: ${counter.getCurrentCount()}`);
+      console.log(`1st increment: ${counter.increment()}`);
+      console.log(`2nd increment: ${counter.increment()}`);
+      console.log(`3rd increment: ${counter.increment()}`);
+      console.log(`4th increment: ${counter.increment()}`);
+      console.log(`1st decrement: ${counter.decrement()}`);
+      console.log(`current count now: ${counter.getCurrentCount()}`);
+    </script>
   </body>
 </html>

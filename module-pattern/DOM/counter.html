@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter DOM</title>
+    <style>
+      button {
+        padding: 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <label>Current Number:</label>
+    <span id="currentNumber"></span>
+    <br /><br />
+    <button id="addBtn">+</button>
+    <button id="subtractBtn">-</button>
+    <button id="resetBtn">reset</button>
+    <button id="twiceBtn">x2</button>
+
+    <script>
+      const counter = (() => {
+        let count = 0;
+
+        function increment() {
+          count++;
+          return count;
+        }
+
+        function decrement() {
+          count--;
+          return count;
+        }
+
+        function getCurrentCount() {
+          return count;
+        }
+
+        function reset() {
+          return (count = 0);
+        }
+
+        function byTwo() {
+          count *= 2;
+          return count;
+        }
+
+        return {
+          increment,
+          decrement,
+          getCurrentCount,
+          reset,
+          byTwo,
+        };
+      })();
+
+      let addBtn = document.getElementById("addBtn");
+      let subtractBtn = document.getElementById("subtractBtn");
+      let resetBtn = document.getElementById("resetBtn");
+      let twiceBtn = document.getElementById("twiceBtn");
+      let currentNumber = document.getElementById("currentNumber");
+
+      addBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${counter.increment()}`;
+      });
+
+      subtractBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${counter.decrement()}`;
+      });
+
+      resetBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${counter.reset()}`;
+      });
+
+      twiceBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${counter.byTwo()}`;
+      });
+
+      console.log(counter.byTwo());
+    </script>
+  </body>
+</html>
