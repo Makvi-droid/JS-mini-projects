@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IIFE</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-       
-        //normal IIFE function
-        (function (){
-            document.writeln('im a normal IIFE<br>')
-        })();
+      //normal IIFE function
+      (function () {
+        document.writeln("im a normal IIFE<br>");
+      })();
 
-        //IIFE function with a greet function inside
-        (function (){
-            function greet(){
-                document.writeln('im an IIFE with a function called greet <br>');
+      //IIFE function with a greet function inside
+      (function () {
+        function greet() {
+          document.writeln("im an IIFE with a function called greet <br>");
+        }
+        greet();
+      })();
+
+      //IIFE arrow function
+      (() => {
+        document.writeln("Im an IIFE with an arrow function<br>");
+      })();
+
+      //IIFE arrow function with an inner function called say
+      (() => {
+        const say = () => {
+          document.writeln("Im an IIFE with an arrow function called say<br>");
+        };
+        say();
+      })();
+
+      //IIFE with variable
+      (() => {
+        let a = 10;
+        let b = 20;
+        document.writeln(`Im an IIFE with 2 variables: a + b = ${a + b}<br>`);
+      })();
+
+      const favoriteGame = (() => {
+        document.writeln("I love Souls Games<br>");
+      })();
+
+      console.log(favoriteGame);
+
+      const game = (() => {
+        return "Elden Ring<br>";
+      })();
+
+      document.writeln(game);
+
+      //im an IIFE with a for loop
+      const forLoop = (() => {
+        function loop() {
+          for (let i = 1; i <= 10; i++) {
+            document.writeln(i);
+            console.log(i);
+          }
+        }
+        loop();
+      })();
+
+      document.writeln("<br>");
+
+      const forLoop2 = (() => {
+        return {
+          loop2: function () {
+            for (let i = 1; i <= 10; i++) {
+              document.writeln(i);
+              console.log(i);
             }
-            greet();
-        })();
+          },
+        };
+      })();
 
-        //IIFE arrow function
-        (() => {
-            document.writeln('Im an IIFE with an arrow function<br>')
-        })();
+      document.writeln(`${forLoop2.loop2()}<br>`);
+      console.log(forLoop2.loop2());
 
-        //IIFE arrow function with an inner function called say
-        (() => {
-            say = () => {
-                document.writeln('Im an IIFE with an arrow function called say<br>')
-            }
-            say()
-        })();
+      const functions = (() => {
+        function publicCall() {
+          console.log("I can call this function");
+        }
 
-        //IIFE with variable
-        (() => {
-            let a = 10;
-            let b = 20;
-            document.writeln(`Im an IIFE with 2 variables: a + b = ${a + b}`);
-        })();
-        
-        
+        function privateCall() {
+          console.log("I cant call this function");
+        }
 
+        return {
+          publicCall,
+        };
+      })();
 
+      console.log(functions.publicCall());
     </script>
-</body>
+  </body>
 </html>
