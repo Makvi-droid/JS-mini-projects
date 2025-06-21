@@ -10,6 +10,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        padding: 10px;
       }
       button {
         padding: 18px;
@@ -32,8 +34,17 @@
 
       addBtn.addEventListener("click", () => {
         const listItem = document.createElement("li");
+        const deleteBtn = document.createElement("button");
         listItem.innerHTML = list.value;
+        deleteBtn.textContent = "delete";
+
         listContainer.append(listItem);
+        deleteBtn.addEventListener("click", () => {
+          listItem.remove();
+        });
+        listItem.append(deleteBtn);
+
+        list.value = "";
       });
     </script>
   </body>
