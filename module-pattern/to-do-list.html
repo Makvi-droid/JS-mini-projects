@@ -6,6 +6,38 @@
     <title>To-Do List IIFE</title>
 </head>
 <body>
-    
+    <script>
+        const toDo = (() => {
+            const list = [];
+            
+            function addList(item){
+                return list.push(item);
+            }
+
+            function remove(){
+                return list.pop();
+            }
+
+            function showList(){
+                for(let i = 0; i < list.length; i++){
+                    console.log(`${i} ${list[i]}`);
+                }
+            }
+
+            return{
+                addList,
+                remove,
+                showList
+            }
+        })();
+
+        toDo.addList('ball');
+        toDo.addList('spoon');
+        toDo.addList('fork');
+
+        
+        
+        toDo.showList();
+    </script>
 </body>
 </html>
