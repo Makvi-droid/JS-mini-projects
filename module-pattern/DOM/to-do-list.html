@@ -28,24 +28,26 @@
     <div id="listContainer"></div>
 
     <script>
-      let list = document.getElementById("listTxt");
-      let addBtn = document.getElementById("addBtn");
-      let listContainer = document.getElementById("listContainer");
+      (() => {
+        let list = document.getElementById("listTxt");
+        let addBtn = document.getElementById("addBtn");
+        let listContainer = document.getElementById("listContainer");
 
-      addBtn.addEventListener("click", () => {
-        const listItem = document.createElement("li");
-        const deleteBtn = document.createElement("button");
-        listItem.innerHTML = list.value;
-        deleteBtn.textContent = "delete";
+        addBtn.addEventListener("click", () => {
+          const listItem = document.createElement("li");
+          const deleteBtn = document.createElement("button");
+          listItem.innerHTML = list.value;
+          deleteBtn.textContent = "delete";
 
-        listContainer.append(listItem);
-        deleteBtn.addEventListener("click", () => {
-          listItem.remove();
+          listContainer.append(listItem);
+          deleteBtn.addEventListener("click", () => {
+            listItem.remove();
+          });
+          listItem.append(deleteBtn);
+
+          list.value = "";
         });
-        listItem.append(deleteBtn);
-
-        list.value = "";
-      });
+      })();
     </script>
   </body>
 </html>
