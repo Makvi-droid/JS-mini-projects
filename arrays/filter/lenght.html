@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Length</title>
+  </head>
+  <body>
+    <script>
+      let languages = [
+        "java",
+        "javascript",
+        "ruby on rails",
+        "python",
+        "assembly",
+      ];
+
+      const array = languages.filter((language) => {
+        if (language.length > 5) {
+          return language;
+        }
+      });
+
+      console.log(array);
+      document.write(`${array} `);
+    </script>
+  </body>
+</html>
