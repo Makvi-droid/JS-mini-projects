@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <label for="currentNumber"
+      >Current Number: <span id="currentNumber">0</span>
+    </label>
+    <br /><br />
+    <button id="addBtn">+</button>
+    <button id="subtractBtn">-</button>
+    <button id="resetBtn">Reset</button>
+
+    <script type="module">
+      import { increment, decrement, reset } from "./count.js";
+
+      let addBtn = document.getElementById("addBtn");
+      let subtractBtn = document.getElementById("subtractBtn");
+      let resetBtn = document.getElementById("resetBtn");
+      let currentNumber = document.getElementById("currentNumber");
+
+      addBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${increment()}`;
+      });
+
+      subtractBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${decrement()}`;
+      });
+
+      resetBtn.addEventListener("click", () => {
+        currentNumber.innerHTML = `${reset()}`;
+      });
+    </script>
+  </body>
+</html>

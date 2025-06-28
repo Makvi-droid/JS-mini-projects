@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Longest Word</title>
+  </head>
+  <body>
+    <script>
+      const words = ["hi", "banana", "cat", "javascript"];
+
+      const check = words.reduce((accumulator, currentValue) => {
+        if (currentValue.length > accumulator.length) {
+          return currentValue;
+        } else {
+          return accumulator;
+        }
+      }, "");
+
+      console.log(check);
+    </script>
+  </body>
+</html>
