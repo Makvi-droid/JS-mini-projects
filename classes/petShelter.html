@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Shelter</title>
+  </head>
+  <body>
+    <script>
+      class PetShelter {
+        constructor(name, age, species, breed, vaccinated) {
+          this.name = name;
+          this.age = age;
+          this.species = species;
+          this.breed = breed;
+          this.vaccinated = vaccinated;
+        }
+
+        registerPet() {
+          console.log(`Name: ${this.name}`);
+          console.log(`Age: ${this.age}`);
+          console.log(`Species: ${this.species}`);
+          console.log(`Breed: ${this.breed}`);
+          console.log(`Vaccinated: ${this.vaccinated}`);
+        }
+      }
+
+      const pet1 = new PetShelter("McJobilat", 5, "dog", "labrador", true);
+      pet1.registerPet();
+    </script>
+  </body>
+</html>
