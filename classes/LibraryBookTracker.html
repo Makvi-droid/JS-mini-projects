@@ -5,5 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Book Tracker</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      class Book {
+        constructor(title, author, isAvailable) {
+          this.title = title;
+          this.author = author;
+          this.isAvailable = isAvailable;
+        }
+
+        addBook() {
+          console.log(`Title: ${this.title}`);
+          console.log(`Author: ${this.author}`);
+          console.log(`Status: ${this.isAvailable}`);
+        }
+      }
+    </script>
+  </body>
 </html>
