@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+</head>
+<body>
+
+    <button>Click Me</button>
+    <span></span>
+
+    <script>
+
+        let btn = document.querySelector('button')
+        let span = document.querySelector('span')
+
+        btn.addEventListener('click', () => {
+            function click(callback){
+                span.innerHTML = 'you clicked the button'
+                setTimeout(callback, 2000)
+            }   
+
+            function alert(){
+                span.innerHTML = 'wake up!!!!'
+            }
+
+            click(alert)
+        });
+
+    </script>
+</body>
+</html>

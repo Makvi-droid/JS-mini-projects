@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry</title>
+</head>
+<body>
+
+    <span></span>
+    <script>
+        let span = document.querySelector('span');
+
+        let mood = prompt("enter your mood");
+
+        function moodCall(callback, callback2){
+            if(mood === 'hungry'){
+                callback()
+            }
+            else{
+                callback2()
+            }
+        }
+
+        function isHungry(){
+            span.innerHTML = "eat";
+        }
+
+        function isNotHungry(){
+            span.innerHTML = 'dont eat'
+        }
+
+        
+
+
+    </script>
+</body>
+</html>
