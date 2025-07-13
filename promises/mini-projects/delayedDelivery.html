@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery</title>
+</head>
+<body>
+    <button>Delivery</button><br>
+    <span></span>
+
+    <script>
+        const btn = document.querySelector('button')
+        const span = document.querySelector('span')
+
+       
+        let count = 0;
+       
+
+        btn.addEventListener('click', () => {
+             
+            function delivery(){
+            const percent = Math.floor(Math.random() * 5) + 1;
+            return new Promise((resolve, reject) => {
+                if(percent === 5){
+                     setTimeout(() => {
+                        resolve('Success')
+                    }, 1000)
+                }
+                else{
+                    setTimeout(() => {
+                        reject('In Progress')
+                    }, 1000)
+                }
+            })
+        }
+
+        delivery()
+        .then(message => {
+            console.log(message);
+            span.innerHTML = `Delivered: ${message}`;
+        })
+        .catch(message => {
+            console.log(message);
+            span.innerHTML = `Delivery still in progress: ${message} ${++count}`;
+        });
+
+    })
+
+
+       
+
+    </script>
+</body>
+</html>
