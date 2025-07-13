@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number</title>
+</head>
+<body>
+
+    <label for="">Guess a number from 1-10</label>
+    <input type="number" name="" id="input">
+    <button>Guess</button><br><br>
+    <span>Random number: <p></p></span>
+
+    <script>
+        let input = document.querySelector('input')
+        let button = document.querySelector('button')
+        let num = document.querySelector('p')
+        let count = 0;
+
+       
+
+        button.addEventListener('click', () => {
+            function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            let randomInteger = getRandomIntInclusive(1, 10);
+        
+            function checkNumber(){
+                return new Promise((resolve, reject) => {
+                    if(parseInt(input.value) === randomInteger){
+                        resolve('success')
+                        
+                    }
+                    else{
+                        reject('failed' + count++)
+                    }
+                })
+            }
+
+            checkNumber().then(message => num.textContent = 'Good guess')
+                        .catch(message => num.textContent = `Wrong number Attempts: ${count}`)
+        })
+    </script>
+</body>
+</html>

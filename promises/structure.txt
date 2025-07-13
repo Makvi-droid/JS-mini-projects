@@ -1,0 +1,49 @@
+/*
+  🧠 JavaScript Promise Template (Beginner-Friendly)
+  --------------------------------------------------
+  This template shows how to properly write and use Promises with clear variable names
+  so it's easier to understand what's going on.
+*/
+
+let myPromise = new Promise((resolve, reject) => {
+  // 👇 Simulate a task (like checking if something is true or waiting for a result)
+  let taskIsSuccessful = true; // Change this to false to test the rejection
+
+  if (taskIsSuccessful) {
+    // ✅ Success! Call resolve and pass a message
+    resolve("The task was successful!");
+  } else {
+    // ❌ Failure! Call reject and pass an error message
+    reject("The task failed.");
+  }
+});
+
+/*
+  👇 Use the Promise with .then() for success, and .catch() for failure
+*/
+
+myPromise
+  .then(successMessage => {
+    // This runs if resolve() was called
+    console.log("✅ Step 1:", successMessage);
+
+    // You can return another message to pass to the next .then()
+    return "Let's continue to the next step.";
+  })
+  .then(followUpMessage => {
+    // This runs after the first .then(), using the return value above
+    console.log("➡️ Step 2:", followUpMessage);
+  })
+  .catch(errorMessage => {
+    // This runs if reject() was called
+    console.log("❌ Error:", errorMessage);
+  });
+
+/*
+  🔁 SUMMARY
+  ---------
+  - resolve("...") sends a value to .then()
+  - reject("...") sends a value to .catch()
+  - return inside a .then() passes a new value to the next .then()
+  - This is great for things that take time (like loading data, waiting, etc.)
+*/
