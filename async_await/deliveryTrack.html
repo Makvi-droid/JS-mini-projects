@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Tracker</title>
+</head>
+<body>
+    
+    <h3>Delivery Tracker</h3><br>
+    <button>Track Delivery</button><br>
+    <span></span>
+
+    <script>
+        const button = document.querySelector('button');
+        const span = document.querySelector('span');
+
+        button.addEventListener('click', function() {
+            function delivery() {
+                return new Promise((resolve, reject) => {
+                    const percent = Math.floor(Math.random() * 5) + 1;
+                    if (percent === 5) {
+                        setTimeout(() => {
+                            resolve('📦 Delivered!');
+                        }, 2000);
+                    } else {
+                        setTimeout(() => {
+                            reject('🚚 Still in transit...');
+                        }, 2000);
+                    }
+                });
+            }
+
+            async function deliveryTracker() {
+                let track = 0;
+                span.textContent = "";
+
+                while (track < 3) {  
+                    try {
+                        const message = await delivery();
+                        span.textContent = `${message} Attempt ${track + 1}`;
+                        break; 
+                    } catch (error) {
+                        span.textContent = `${error} Attempt ${track + 1}`;
+                        track++; 
+                        if (track === 3) {
+                            span.textContent = '❌ Delivery failed after 3 attempts.';
+                        }
+                    }
+                }
+            }
+
+            deliveryTracker();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <img src="" alt="api_gif">
+
+    <script>
+        const image = document.querySelector('img')
+
+        async function Api() {
+        try{
+            const url = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=n8rHqCLkSmKqPUcIUca0gRXIvdSmgRnG&s=cats')
+            const response = await url.json()
+
+            image.src = response.data.images.original.webp
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
+        Api()
+    </script>
+</body>
+</html>

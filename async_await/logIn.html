@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+</head>
+<body>
+    <script>
+        function LogIn(){
+            return new Promise((resolve, reject) => {
+                let password = 1234;
+                let userInput = 1234;
+                if(userInput === password){
+                    setTimeout(() => {
+                        resolve('Correct Password')
+                    }, 1500)
+                    
+                }
+                else{
+                    setTimeout(() => {
+                        reject('Wrong Password')
+                    }, 1500)
+                }
+            })
+        }
+
+        async function checkLogIn() {
+            try{
+            const approve = await LogIn()
+            console.log(approve)
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+
+        checkLogIn()
+    </script>
+</body>
+</html>
